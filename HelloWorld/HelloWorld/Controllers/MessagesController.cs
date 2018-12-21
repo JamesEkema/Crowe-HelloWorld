@@ -25,9 +25,9 @@ namespace HelloWorld.Controllers
         public IEnumerable<Message> GetMessage()
         {
             //Use following line for unit testing or when you actually have a db to connect to
-            return _context.Message;
+            //return _context.Message;
 
-            //return new List<Message> { new Message { MessageID = 1, Text = "Hello World" } };
+            return new List<Message> { new Message { MessageID = 1, Text = "Hello World" } };
         }
 
 
