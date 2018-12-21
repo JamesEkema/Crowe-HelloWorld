@@ -9,11 +9,17 @@
 
 <script>
 var app = angular.module('myApp', []);
+
 app.controller('myCtrl', function($scope, $http) {
-	var baseUrl = 'http://localhost:57186/api/';
+	var baseUrl = 'http://localhost:5718/api/';	//base API URL
+
+	//Make a request to 'messages' endpoint, display text property of response
 	$http.get(baseUrl + 'messages')
 	.then(function(response) {
 		$scope.message = response.data[0].text;
+	},
+	function(error) {	//handle error
+		alert("There was an error getting a response from the API.");
 	});
 });
 </script>
