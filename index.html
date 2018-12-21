@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl"> 
+	<h1>{{message}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+	var baseUrl = 'http://localhost:57186/api/';
+	$http.get(baseUrl + 'messages')
+	.then(function(response) {
+		$scope.message = response.data[0].text;
+	});
+});
+</script>
+
+</body>
+</html>
